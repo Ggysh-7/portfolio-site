@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #fff;
+  background-color: #0a0a0c;
+}
+
+/* 自定义毛玻璃样式 */
+@layer utilities {
+  .glass {
+    background: rgba(30, 30, 36, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}

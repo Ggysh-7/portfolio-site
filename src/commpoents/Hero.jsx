@@ -1,0 +1,199 @@
+import { useState } from "react";
+
+const Hero = () => {
+  // 作品卡片静态数据（写死，新增标题字段）
+  const workList = [
+    { imgUrl: "/work1.png", title: "" },
+    { imgUrl: "/work2.png", title: "" },
+    { imgUrl: "/work3.png", title: "" },
+    { imgUrl: "/work4.png", title: "" },
+    { imgUrl: "/work5.png", title: "" },
+    { imgUrl: "/work6.png", title: "" },
+    { imgUrl: "/work7.png", title: "" },
+    { imgUrl: "/work8.png", title: "" },
+    { imgUrl: "/work9.png", title: "" },
+    { imgUrl: "/work10.png", title: "" },
+  ];
+
+  // 弹窗状态管理
+  const [openModal, setOpenModal] = useState(false);
+  const [activeWork, setActiveWork] = useState(null);
+
+  // 打开弹窗
+  const openPreview = (item) => {
+    setActiveWork(item);
+    setOpenModal(true);
+    document.body.style.overflow = "hidden"; // 禁止页面滚动
+  };
+
+  // 关闭弹窗
+  const closePreview = () => {
+    setOpenModal(false);
+    setActiveWork(null);
+    document.body.style.overflow = ""; // 恢复滚动
+  };
+
+  return (
+    <section
+      id="hero"
+      className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center"
+    >
+      {/* 全局动画样式 */}
+      <style>{`
+        /* 星星闪烁动画 */
+        @keyframes twinkle {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.55; transform: scale(0.92); }
+        }
+        .star-twinkle {
+          animation: twinkle 2.8s ease-in-out infinite;
+        }
+
+        /* 无限横向滚动动画 */
+        @keyframes scrollLoop {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .scroll-wrap {
+          animation: scrollLoop 32s linear infinite;
+        }
+        .scroll-wrap:hover {
+          animation-play-state: paused;
+        }
+
+        /* 光晕缓慢浮动动画 */
+        @keyframes glowFloat {
+          0% { transform: translate(-15%,-10%) scale(1); opacity:0.25; }
+          50% { transform: translate(10%,5%) scale(1.15); opacity:0.18; }
+          100% { transform: translate(-15%,-10%) scale(1); opacity:0.25; }
+        }
+        @keyframes glowFloat2 {
+          0% { transform: translate(10%,5%) scale(1); opacity:0.15; }
+          50% { transform: translate(-10%,-8%) scale(1.2); opacity:0.22; }
+          100% { transform: translate(10%,5%) scale(1); opacity:0.15; }
+        }
+        .glow-layer-1{
+          animation: glowFloat 12s ease-in-out infinite;
+        }
+        .glow-layer-2{
+          animation: glowFloat2 16s ease-in-out infinite;
+        }
+
+        /* 弹窗淡入动画 */
+        @keyframes modalFade {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .modal-wrap {
+          animation: modalFade 0.25s ease-out;
+        }
+      `}</style>
+
+      {/* 底层云海原图 */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/bg-hero.jpg"
+          alt="背景云海"
+          className="w-full h-full object-cover"
+        />
+        {/* 基础暗化蒙版 */}
+        <div className="absolute inset-0 bg-black/35"></div>
+      </div>
+
+      {/* 动态光晕层 第一层暖黄色（贴合原图落日氛围） */}
+      <div className="glow-layer-1 absolute inset-0 z-[1] pointer-events-none">
+        <div className="absolute right-[10%] top-[15%] w-[600px] h-[600px] rounded-full bg-amber-400 blur-[120px]"></div>
+      </div>
+      {/* 动态光晕层 第二层冷调淡蓝，平衡画面云层 */}
+      <div className="glow-layer-2 absolute inset-0 z-[1] pointer-events-none">
+        <div className="absolute left-[5%] bottom-[20%] w-[700px] h-[700px] rounded-full bg-sky-400 blur-[140px]"></div>
+      </div>
+
+      {/* 文字主体内容 响应式调整 */}
+      <div className="relative z-10 px-6 sm:px-8 md:px-16 lg:px-24 max-w-[1300px] pt-16">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
+          <span className="text-neonGreen">Yusheng Guo</span>
+          <br />
+          <span className="text-white">PORTFOLIO</span>
+          <span className="star-twinkle text-2xl sm:text-3xl md:text-5xl align-top ml-2 inline-block">✦</span>
+        </h1>
+        <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-100">
+          AI 融入生活
+          <br />
+          让AI提效 让工作更轻松
+        </p>
+      </div>
+
+      {/* 底部无限自动轮播卡片区域 - 手机缩小尺寸 */}
+      <div className="relative z-10 mt-10 md:mt-14 overflow-hidden">
+        <div className="scroll-wrap flex gap-3 md:gap-4 w-max">
+          {/* 第一组 */}
+          {workList.map((item, idx) => (
+            <div
+              key={idx}
+              onClick={() => openPreview(item)}
+              className="w-[180px] h-[110px] md:w-[260px] md:h-[160px] rounded-xl overflow-hidden flex-shrink-0 cursor-pointer"
+            >
+              <img
+                src={item.imgUrl}
+                alt={`作品${idx + 1}`}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          ))}
+          {/* 复制一组，实现无缝衔接无限滚动 */}
+          {workList.map((item, idx) => (
+            <div
+              key={`copy-${idx}`}
+              onClick={() => openPreview(item)}
+              className="w-[180px] h-[110px] md:w-[260px] md:h-[160px] rounded-xl overflow-hidden flex-shrink-0 cursor-pointer"
+            >
+              <img
+                src={item.imgUrl}
+                alt={`作品${idx + 1}`}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ========== 作品预览弹窗模块 ========== */}
+      {openModal && activeWork && (
+        <div
+          className="modal-wrap fixed inset-0 z-[9999] bg-black/85 flex items-center justify-center p-4"
+          onClick={closePreview}
+        >
+          {/* 弹窗主体，阻止冒泡 */}
+          <div
+            className="relative max-w-[1100px] w-full bg-black rounded-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* 右上角关闭按钮 */}
+            <button
+              onClick={closePreview}
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-neonGreen/90 text-black flex items-center justify-center font-bold z-10 hover:bg-neonGreen transition"
+            >
+              ✕
+            </button>
+
+            {/* 预览大图 */}
+            <img
+              src={activeWork.imgUrl}
+              alt={activeWork.title}
+              className="w-full object-contain max-h-[85vh]"
+            />
+
+            {/* 左下角文字（和截图样式一致） */}
+            <div className="absolute bottom-6 left-6">
+              {/* <p className="text-neonGreen text-xs uppercase tracking-widest">SELECTED WORK</p> */}
+              <h3 className="text-white text-3xl font-bold mt-1">{activeWork.title}</h3>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Hero;
