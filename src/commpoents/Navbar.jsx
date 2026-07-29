@@ -22,13 +22,17 @@ const Navbar = () => {
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[96%] max-w-[1240px] rounded-full glass px-6 py-3 flex items-center justify-between">
       {/* 左侧Logo */}
-      <div
-        onClick={goTop}
-        className="bg-neonGreen text-black px-3 py-1 rounded-full font-bold cursor-pointer flex items-center gap-2 select-none text-sm md:text-base"
-      >
-        <span>🐨</span>
-        <span>Ggysh</span>
-      </div>
+    <div
+      onClick={goTop}
+      className="bg-neonGreen text-black px-3 py-1 rounded-full font-bold cursor-pointer flex items-center gap-2 select-none text-sm md:text-base"
+      // style={{
+      //   background: 'linear-gradient(135deg, #088e8d, #ffffff, #1c6c9a)',
+      //   boxShadow: '0 0 12px #088e8d, 0 0 24px #1c6c9a, inset 0 0 6px rgba(255,255,255,0.15)'
+      // }}
+    >
+      <span>🐨</span>
+      <span>Ggysh</span>
+    </div>
 
       {/* 中间菜单：桌面端展示，手机隐藏 */}
       <div className="hidden md:flex gap-8 text-sm text-gray-200">
@@ -49,7 +53,7 @@ const Navbar = () => {
         as="button"
         className="custom-class"
         color="cyan"
-        speed="5s"
+        speed="3s"
       >
         <a
           href="#contact"

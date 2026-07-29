@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SoftAurora from '../specialeffects/SoftAurora';
 
 const Hero = () => {
   // 作品卡片静态数据（写死，新增标题字段）
@@ -33,7 +34,7 @@ const Hero = () => {
     document.body.style.overflow = ""; // 恢复滚动
   };
 
-  return (
+return (
     <section
       id="hero"
       className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center"
@@ -90,24 +91,40 @@ const Hero = () => {
       `}</style>
 
       {/* 底层云海原图 */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/bg-hero.jpg"
-          alt="背景云海"
-          className="w-full h-full object-cover"
-        />
-        {/* 基础暗化蒙版 */}
-        <div className="absolute inset-0 bg-black/35"></div>
+      <div className="absolute inset-0 z-0"> 
+        {/* <img src="/bg-hero.jpg" alt="背景云海" className="w-full h-full object-cover" />  */}
+        {/* 基础暗化蒙版 */} 
+        {/* <div className="absolute inset-0 bg-black/35"></div>  */}
       </div>
 
-      {/* 动态光晕层 第一层暖黄色（贴合原图落日氛围） */}
-      <div className="glow-layer-1 absolute inset-0 z-[1] pointer-events-none">
+      <SoftAurora
+        speed={0.6}
+        scale={1.5}
+        brightness={1}
+        color1="#f7f7f7"
+        color2="#e100ff"
+        noiseFrequency={2.5}
+        noiseAmplitude={1}
+        bandHeight={0.5}
+        bandSpread={1}
+        octaveDecay={0.1}
+        layerOffset={0}
+        colorSpeed={1}
+        enableMouseInteraction
+        mouseInfluence={0.25}
+      />
+
+
+      {/* 暗化蒙版，叠加在星空上方，统一画面亮度 */}
+      <div className="absolute inset-0 z-[0.5] bg-black/35"></div>
+
+      {/* 动态光晕层 */}
+      {/* <div className="glow-layer-1 absolute inset-0 z-[1] pointer-events-none">
         <div className="absolute right-[10%] top-[15%] w-[600px] h-[600px] rounded-full bg-amber-400 blur-[120px]"></div>
       </div>
-      {/* 动态光晕层 第二层冷调淡蓝，平衡画面云层 */}
       <div className="glow-layer-2 absolute inset-0 z-[1] pointer-events-none">
         <div className="absolute left-[5%] bottom-[20%] w-[700px] h-[700px] rounded-full bg-sky-400 blur-[140px]"></div>
-      </div>
+      </div> */}
 
       {/* 文字主体内容 响应式调整 */}
       <div className="relative z-10 px-6 sm:px-8 md:px-16 lg:px-24 max-w-[1300px] pt-16">
@@ -186,7 +203,6 @@ const Hero = () => {
 
             {/* 左下角文字（和截图样式一致） */}
             <div className="absolute bottom-6 left-6">
-              {/* <p className="text-neonGreen text-xs uppercase tracking-widest">SELECTED WORK</p> */}
               <h3 className="text-white text-3xl font-bold mt-1">{activeWork.title}</h3>
             </div>
           </div>
