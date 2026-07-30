@@ -21,7 +21,7 @@ const Contact = () => {
   return (
     <section id="contact" className="w-full min-h-screen flex items-center overflow-hidden relative px-6 lg:px-16">
       {/* 淡绿色光晕装饰，如果你不需要这个背景光斑，可以直接删除这一整行 */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#bfff2f]/5 rounded-full blur-[120px]"></div>
+      {/* <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#bfff2f]/5 rounded-full blur-[120px]"></div> */}
 
       <div className="w-full max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-20 items-center">
         {/* 左侧文字区域 */}

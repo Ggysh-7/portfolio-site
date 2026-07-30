@@ -18,7 +18,7 @@ const Advantage = () => {
   return (
     <section
       id="advantage"
-      className="w-full min-h-screen bg-[#0c0c10] px-6 sm:px-10 lg:px-20 py-24 flex flex-col justify-center"
+      className="w-full min-h-screen bg-transparent px-6 sm:px-10 lg:px-20 py-24 flex flex-col justify-center"
     >
       <style>{`
         .adv-card {

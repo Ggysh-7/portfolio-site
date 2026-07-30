@@ -27,9 +27,8 @@ function App() {
       <Hero />
       <Experience />
       <Advantage />
-      <Works />
+      {/* <Works /> */}
       <Contact />
-      <section id="contact" className="w-full min-h-screen bg-[#08080a]"></section>
     </ClickSpark>
   );
 }

@@ -7,7 +7,7 @@ const Navbar = () => {
   const menuList = [
     { label: "工作经历", target: "#experience" },
     { label: "个人优势", target: "#advantage" },
-    { label: "精选作品", target: "#works" },
+    // { label: "精选作品", target: "#works" },
   ];
 
   const goTop = () => {

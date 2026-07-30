@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* 和navbar高度匹配 */
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;

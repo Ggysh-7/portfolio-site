@@ -42,7 +42,7 @@ const Works = () => {
   return (
     <section
       id="works"
-      className="w-full min-h-screen bg-[#0e0e14] px-6 sm:px-10 lg:px-20 py-24 flex flex-col justify-center"
+      className="w-full min-h-screen bg-transparent px-6 sm:px-10 lg:px-20 py-24 flex flex-col justify-center"
     >
       {/* 区块标题 和全网站风格统一 */}
       <div className="mb-16">
