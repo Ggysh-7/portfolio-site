@@ -4,6 +4,7 @@ import Experience from "./commpoents/Experience";
 import Advantage from "./commpoents/Advantage";
 import Works from "./commpoents/Works";
 import Contact from "./commpoents/Contact";
+import FadeInObserver from "./commpoents/FadeInObserver";
 import ClickSpark from './specialeffects/ClickSpark';
 import Galaxy from './specialeffects/Galaxy';
 
@@ -29,6 +30,7 @@ function App() {
       <Advantage />
       {/* <Works /> */}
       <Contact />
+      <FadeInObserver />
     </ClickSpark>
   );
 }

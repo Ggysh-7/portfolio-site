@@ -18,7 +18,8 @@ const Advantage = () => {
   return (
     <section
       id="advantage"
-      className="w-full min-h-screen bg-transparent px-6 sm:px-10 lg:px-20 py-24 flex flex-col justify-center"
+      className="w-full min-h-screen bg-transparent px-6 sm:px-10 lg:px-20 py-24 flex flex-col justify-center fade-in-element"
+      style={{ "--enter-delay": "0.05s" }}
     >
       <style>{`
         .adv-card {
@@ -33,7 +34,7 @@ const Advantage = () => {
       `}</style>
 
       {/* 区块标题 */}
-      <div className="mb-16">
+      <div className="mb-16 fade-in-element" style={{ "--enter-delay": "0.1s" }}>
         <h2 className="text-4xl md:text-5xl font-bold text-white flex items-center gap-3">
           ADVANTAGE
           <span className="text-neonGreen">↘</span>
@@ -46,7 +47,8 @@ const Advantage = () => {
         {advantageList.map((item, idx) => (
           <div
             key={idx}
-            className="adv-card rounded-xl p-8"
+            className="adv-card rounded-xl p-8 fade-in-element"
+            style={{ "--enter-delay": `${0.12 + idx * 0.08}s` }}
           >
             {/* 序号 */}
             <p className="text-neonGreen text-3xl font-bold opacity-60">0{idx + 1}</p>

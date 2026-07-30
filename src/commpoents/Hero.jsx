@@ -127,7 +127,7 @@ return (
       </div> */}
 
       {/* 文字主体内容 响应式调整 */}
-      <div className="relative z-10 px-6 sm:px-8 md:px-16 lg:px-24 max-w-[1300px] pt-16">
+      <div className="relative z-10 px-6 sm:px-8 md:px-16 lg:px-24 max-w-[1300px] pt-16 fade-in-element" style={{ "--enter-delay": "0.06s" }}>
         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
           <span className="text-neonGreen">Yusheng Guo</span>
           <br />
@@ -149,7 +149,8 @@ return (
             <div
               key={idx}
               onClick={() => openPreview(item)}
-              className="w-[180px] h-[110px] md:w-[260px] md:h-[160px] rounded-xl overflow-hidden flex-shrink-0 cursor-pointer"
+              className="w-[180px] h-[110px] md:w-[260px] md:h-[160px] rounded-xl overflow-hidden flex-shrink-0 cursor-pointer fade-in-element"
+              style={{ "--enter-delay": `${0.08 * idx + 0.12}s` }}
             >
               <img
                 src={item.imgUrl}
@@ -163,7 +164,8 @@ return (
             <div
               key={`copy-${idx}`}
               onClick={() => openPreview(item)}
-              className="w-[180px] h-[110px] md:w-[260px] md:h-[160px] rounded-xl overflow-hidden flex-shrink-0 cursor-pointer"
+              className="w-[180px] h-[110px] md:w-[260px] md:h-[160px] rounded-xl overflow-hidden flex-shrink-0 cursor-pointer fade-in-element"
+              style={{ "--enter-delay": `${0.08 * idx + 0.5}s` }}
             >
               <img
                 src={item.imgUrl}

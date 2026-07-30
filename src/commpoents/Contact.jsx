@@ -19,13 +19,13 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="w-full min-h-screen flex items-center overflow-hidden relative px-6 lg:px-16">
+    <section id="contact" className="w-full min-h-screen flex items-center overflow-hidden relative px-6 lg:px-16 fade-in-element" style={{ "--enter-delay": "0.05s" }}>
       {/* 淡绿色光晕装饰，如果你不需要这个背景光斑，可以直接删除这一整行 */}
       {/* <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#bfff2f]/5 rounded-full blur-[120px]"></div> */}
 
       <div className="w-full max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-20 items-center">
         {/* 左侧文字区域 */}
-        <div className="order-1 lg:order-1">
+        <div className="order-1 lg:order-1 fade-in-element" style={{ "--enter-delay": "0.1s" }}>
           <p className="text-gray-400 text-lg mb-3">{textContent.topTitle}</p>
           <h2 className="text-white font-bold leading-[1.1] text-[clamp(1.6rem,3.8vw,3.2rem)] uppercase">
             {textContent.line1}<br />
@@ -34,15 +34,15 @@ const Contact = () => {
           </h2>
 
           {/* 左下角标签按钮 */}
-          <div className="mt-10 inline-flex items-center gap-2 bg-[#bfff2f] text-black font-semibold px-5 py-3 rounded-full">
+          <div className="mt-10 inline-flex items-center gap-2 bg-[#bfff2f] text-black font-semibold px-5 py-3 rounded-full fade-in-element" style={{ "--enter-delay": "0.18s" }}>
             <span>👨‍💻</span>
             <span>Guo YuSheng</span>
           </div>
         </div>
 
         {/* 右侧 玻璃质感联系卡片 */}
-        <div className="order-2 lg:order-2 flex justify-center lg:justify-end">
-          <div className="w-full max-w-[360px] bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
+        <div className="order-2 lg:order-2 flex justify-center lg:justify-end fade-in-element" style={{ "--enter-delay": "0.12s" }}>
+          <div className="w-full max-w-[360px] bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 fade-in-element" style={{ "--enter-delay": "0.16s" }}>
             <h3 className="text-[#bfff2f] text-xl font-bold mb-6">CONTACT</h3>
             
             <div className="flex flex-col gap-4 text-gray-200">

@@ -22,4 +22,19 @@ body {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
+
+  .fade-in-element {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-element.fade-in-visible {
+    transition-delay: var(--enter-delay, 0s);
+  }
 }

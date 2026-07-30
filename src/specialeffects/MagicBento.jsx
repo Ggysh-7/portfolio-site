@@ -28,9 +28,11 @@ const MagicBento = ({
               ${spanClass}
               ${isHovered ? 'scale-[1.02] border-[rgba(191,255,47,0.5)]' : ''}
             `}
+            style={{ "--enter-delay": `${0.08 * index + 0.12}s` }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
+          <div className="fade-in-element h-full flex flex-col justify-between"></div>
             {/* 悬浮光晕 */}
             {isHovered && !isMobile && (
               <div

@@ -34,7 +34,8 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="w-full min-h-screen bg-transparent px-6 sm:px-10 lg:px-20 py-10 flex flex-col items-start"
+      className="w-full min-h-screen bg-transparent px-6 sm:px-10 lg:px-20 py-10 flex flex-col items-start fade-in-element"
+      style={{ "--enter-delay": "0.05s" }}
     >
     <style>{`
       .career-line {
@@ -92,7 +93,7 @@ const Experience = () => {
     `}</style>
 
       {/* 区块标题 */}
-      <div className="mb-4">
+      <div className="mb-4 fade-in-element" style={{ "--enter-delay": "0.1s" }}>
         <h2 className="text-3xl md:text-4xl font-bold text-white flex items-center gap-3">
           WORK EXPERIENCE
           <span className="text-neonGreen">↘</span>
@@ -103,7 +104,7 @@ const Experience = () => {
       {/* 上部：头像 + 个人介绍区域（PC左右布局 / 手机上下布局） */}
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6 mb-6">
         {/* 左侧3D头像：缩小最大宽度，减少垂直高度占用 */}
-      <div className="w-full max-w-[300px] mx-auto lg:mx-0">
+      <div className="w-full max-w-[300px] mx-auto lg:mx-0 fade-in-element" style={{ "--enter-delay": "0.14s" }}>
         <TiltedCard tiltAmount={12} scaleOnHover={1.04}>
           <img
             src={infoData.avatarImg}
@@ -114,14 +115,14 @@ const Experience = () => {
       </div>
 
         {/* 右侧个人信息面板 */}
-        <div>
+        <div className="fade-in-element" style={{ "--enter-delay": "0.18s" }}>
           <p className="text-neonGreen text-xs tracking-widest mb-1">ABOUT ME</p>
           <h3 className="text-3xl font-bold text-white mb-3">Hi, I am {infoData.name}!</h3>
           <p className="text-gray-300 text-sm max-w-2xl leading-relaxed mb-4">
             {infoData.desc}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8 mb-4 fade-in-element" style={{ "--enter-delay": "0.22s" }}>
             <div>
               <p className="text-gray-500 text-xs">民族</p>
               <p className="text-white font-medium">{infoData.minzu}</p>
@@ -141,7 +142,7 @@ const Experience = () => {
           </div>
 
           {/* 数据数字 */}
-          <div className="flex items-center gap-6 my-4">
+          <div className="flex items-center gap-6 my-4 fade-in-element" style={{ "--enter-delay": "0.26s" }}>
             <div>
               <p className="text-neonGreen text-2xl font-bold">{infoData.projectNum}</p>
               <p className="text-gray-500 text-xs mt-1">项目开发</p>
@@ -153,7 +154,7 @@ const Experience = () => {
           </div>
 
           {/* 技能标签 */}
-          <div className="flex flex-wrap gap-3 items-center">
+          <div className="flex flex-wrap gap-3 items-center fade-in-element" style={{ "--enter-delay": "0.28s" }}>
             <span className="text-gray-500 text-xs">Skill Tag</span>
             {infoData.tags.map((tag,i)=>(
               <span key={i} className="px-2 py-1 bg-white/10 rounded text-xs text-gray-200">
@@ -170,7 +171,7 @@ const Experience = () => {
         <p className="text-right text-gray-400 text-lg mb-6 hidden lg:block">工作经历</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 relative career-line">
           {careerList.map((item, idx) => (
-            <div key={idx} className="line-dot relative">
+            <div key={idx} className="line-dot relative fade-in-element" style={{ "--enter-delay": `${0.1 + idx * 0.08}s` }}>
               <p className="text-neonGreen text-sm">{item.time}</p>
               <h4 className="text-white font-bold mt-1">{item.company}</h4>
               <span className="inline-block mt-1 px-2 py-0.5 rounded bg-neonGreen/20 text-neonGreen text-xs">
