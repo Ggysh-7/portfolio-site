@@ -3,6 +3,7 @@ import Hero from "./commpoents/Hero";
 import Experience from "./commpoents/Experience";
 import Advantage from "./commpoents/Advantage";
 import Works from "./commpoents/Works";
+import Contact from "./commpoents/Contact";
 import ClickSpark from './specialeffects/ClickSpark';
 import Galaxy from './specialeffects/Galaxy';
 
@@ -27,6 +28,7 @@ function App() {
       <Experience />
       <Advantage />
       <Works />
+      <Contact />
       <section id="contact" className="w-full min-h-screen bg-[#08080a]"></section>
     </ClickSpark>
   );
