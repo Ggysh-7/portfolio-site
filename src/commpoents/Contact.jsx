@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Contact = () => {
   // 联系方式静态数据，自行修改
@@ -7,7 +7,8 @@ const Contact = () => {
     wechat: "Ggysh7-",
     email: "Ggysh_7@163.com",
     // tagline: "微信二维码",
-    qrcode: "/qrcode.png"
+    // qrcode: "/qrcode.png",
+    qrcode: "https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEYQUhqbFOmzref8JlF4F9fvh18DVdxogACvicAAhvBYVfd_umC8B6BTj0E.png"
   };
 
   // 文字内容
@@ -17,6 +18,24 @@ const Contact = () => {
     line2: " to the same horizon.",
     line3: "Eager to Cooperate."
   };
+
+  const [openModal, setOpenModal] = useState(false);
+
+  useEffect(() => {
+    if (!openModal) {
+      document.body.style.overflow = '';
+      return;
+    }
+
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [openModal]);
+
+  const openPreview = () => setOpenModal(true);
+  const closePreview = () => setOpenModal(false);
 
   return (
     <section id="contact" className="w-full min-h-screen flex items-center overflow-hidden relative px-6 lg:px-16 fade-in-element" style={{ "--enter-delay": "0.05s" }}>
@@ -54,7 +73,10 @@ const Contact = () => {
             <p className="text-gray-500 text-sm mt-4 mb-6">{contactData.tagline}</p>
 
             {/* 二维码区域 */}
-            <div className="bg-black/60 rounded-xl p-3 w-[160px]">
+            <div
+              className="rounded-xl p-3 w-[160px] cursor-pointer hover:scale-[1.02] transition-transform duration-200"
+              onClick={openPreview}
+            >
               <img
                 src={contactData.qrcode}
                 alt="微信二维码"
@@ -64,6 +86,31 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {openModal && (
+        <div
+          className="fixed inset-0 z-[9999] bg-black/85 flex items-center justify-center p-4"
+          onClick={closePreview}
+        >
+          <div
+            className="relative max-w-[760px] w-full bg-black rounded-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closePreview}
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#bfff2f]/90 text-black flex items-center justify-center font-bold z-10 hover:bg-[#bfff2f] transition"
+            >
+              ✕
+            </button>
+
+            <img
+              src={contactData.qrcode}
+              alt="微信二维码"
+              className="w-full object-contain max-h-[85vh]"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };

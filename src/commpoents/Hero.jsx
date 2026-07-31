@@ -2,18 +2,17 @@ import { useState } from "react";
 import SoftAurora from '../specialeffects/SoftAurora';
 
 const Hero = () => {
-  // 作品卡片静态数据（写死，新增标题字段）
-  const workList = [
-    { imgUrl: "/work1.png", title: "" },
-    { imgUrl: "/work2.png", title: "" },
-    { imgUrl: "/work3.png", title: "" },
-    { imgUrl: "/work4.png", title: "" },
-    { imgUrl: "/work5.png", title: "" },
-    { imgUrl: "/work6.png", title: "" },
-    { imgUrl: "/work7.png", title: "" },
-    { imgUrl: "/work8.png", title: "" },
-    { imgUrl: "/work9.png", title: "" },
-    { imgUrl: "/work10.png", title: "" },
+   const workList = [
+    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQAat.png", title: "" },
+    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQMrj.png", title: "" },
+    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQZPf.png", title: "" },
+    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQZPf.png", title: "" },
+    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQQqs.png", title: "" },
+    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQEIP.png", title: "" },
+    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQmRS.png", title: "" },
+    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQeG8.png", title: "" },
+    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQKMQ.png", title: "" },
+    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQnxg.png", title: "" },
   ];
 
   // 弹窗状态管理
