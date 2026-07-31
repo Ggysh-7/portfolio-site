@@ -5,6 +5,7 @@ import Advantage from "./commpoents/Advantage";
 import Works from "./commpoents/Works";
 import Contact from "./commpoents/Contact";
 import FadeInObserver from "./commpoents/FadeInObserver";
+import OpeningLoader from "./commpoents/OpeningLoader";
 import ClickSpark from './specialeffects/ClickSpark';
 import Galaxy from './specialeffects/Galaxy';
 
@@ -24,6 +25,7 @@ function App() {
         galaxyRadius={800}
         rotationSpeed={0.0005}
       />
+      <OpeningLoader />
       <Navbar />
       <Hero />
       <Experience />
