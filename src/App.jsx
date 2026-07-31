@@ -2,7 +2,6 @@ import Navbar from "./commpoents/Navbar";
 import Hero from "./commpoents/Hero";
 import Experience from "./commpoents/Experience";
 import Advantage from "./commpoents/Advantage";
-import Works from "./commpoents/Works";
 import Contact from "./commpoents/Contact";
 import FadeInObserver from "./commpoents/FadeInObserver";
 import OpeningLoader from "./commpoents/OpeningLoader";
@@ -30,7 +29,6 @@ function App() {
       <Hero />
       <Experience />
       <Advantage />
-      {/* <Works /> */}
       <Contact />
       <FadeInObserver />
     </ClickSpark>
