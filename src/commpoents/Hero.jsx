@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SoftAurora from '../specialeffects/SoftAurora';
+import OptimizedImage from './OptimizedImage';
 
 const Hero = () => {
    const workList = [
@@ -151,9 +152,11 @@ return (
               className="w-[180px] h-[110px] md:w-[260px] md:h-[160px] rounded-xl overflow-hidden flex-shrink-0 cursor-pointer fade-in-element"
               style={{ "--enter-delay": `${0.08 * idx + 0.12}s` }}
             >
-              <img
+              <OptimizedImage
                 src={item.imgUrl}
                 alt={`作品${idx + 1}`}
+                loading="lazy"
+                containerClassName="w-full h-full"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -166,9 +169,11 @@ return (
               className="w-[180px] h-[110px] md:w-[260px] md:h-[160px] rounded-xl overflow-hidden flex-shrink-0 cursor-pointer fade-in-element"
               style={{ "--enter-delay": `${0.08 * idx + 0.5}s` }}
             >
-              <img
+              <OptimizedImage
                 src={item.imgUrl}
                 alt={`作品${idx + 1}`}
+                loading="lazy"
+                containerClassName="w-full h-full"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -196,9 +201,12 @@ return (
             </button>
 
             {/* 预览大图 */}
-            <img
+            <OptimizedImage
               src={activeWork.imgUrl}
               alt={activeWork.title}
+              loading="eager"
+              fetchPriority="high"
+              containerClassName="w-full max-h-[85vh]"
               className="w-full object-contain max-h-[85vh]"
             />
 

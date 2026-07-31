@@ -1,4 +1,5 @@
 import TiltedCard from '../specialeffects/TiltedCard';
+import OptimizedImage from './OptimizedImage';
 
 const Experience = () => {
   // 静态简历数据
@@ -106,10 +107,13 @@ const Experience = () => {
         {/* 左侧3D头像：缩小最大宽度，减少垂直高度占用 */}
       <div className="w-full max-w-[300px] mx-auto lg:mx-0 fade-in-element" style={{ "--enter-delay": "0.14s" }}>
         <TiltedCard tiltAmount={12} scaleOnHover={1.04}>
-          <img
+          <OptimizedImage
             src={infoData.avatarImg}
             alt="avatar"
-            className="w-full rounded-xl object-cover aspect-[4/5]"
+            loading="eager"
+            fetchPriority="high"
+            containerClassName="rounded-xl aspect-[4/5]"
+            className="rounded-xl"
           />
         </TiltedCard>
       </div>

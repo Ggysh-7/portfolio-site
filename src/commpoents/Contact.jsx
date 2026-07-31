@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import OptimizedImage from './OptimizedImage';
 
 const Contact = () => {
   // 联系方式静态数据，自行修改
@@ -77,10 +78,11 @@ const Contact = () => {
               className="rounded-xl p-3 w-[160px] cursor-pointer hover:scale-[1.02] transition-transform duration-200"
               onClick={openPreview}
             >
-              <img
+              <OptimizedImage
                 src={contactData.qrcode}
                 alt="微信二维码"
-                className="w-full object-cover rounded"
+                containerClassName="rounded"
+                className="rounded"
               />
             </div>
           </div>
@@ -103,10 +105,13 @@ const Contact = () => {
               ✕
             </button>
 
-            <img
+            <OptimizedImage
               src={contactData.qrcode}
               alt="微信二维码"
+              containerClassName="w-full max-h-[85vh]"
               className="w-full object-contain max-h-[85vh]"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
         </div>
