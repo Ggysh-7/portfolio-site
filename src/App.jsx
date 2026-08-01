@@ -29,7 +29,7 @@ function App() {
       <OpeningLoader />
       <Navbar />
       <Hero />
-      {console.log('首屏加载优化')}      
+      {console.log('首屏加载优化2')}      
       <Suspense fallback={null}>
         <Experience />
       </Suspense>
