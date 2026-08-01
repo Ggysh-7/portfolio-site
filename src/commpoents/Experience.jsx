@@ -1,9 +1,7 @@
-import OptimizedImage from './OptimizedImage';
-
 const Experience = () => {
   // 静态简历数据
   const infoData = {
-    avatarImg: "/avatar-3d.jpg",
+    avatarImg: "https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEYR9dqbMSF8E72DbSZ2ihknNHQ7HrUIQACDygAAhvBaVdVpPkYQq6Nxz0E.jpg", 
     name: "郭雨生",
     desc: "熟练使用Claude Code、Codex、OpenClaw,熟悉VibeCoding式开发提升工作效率。熟练部署本地 AI 人工智能体，配置各种模型 chatgtp、 llma、deepseek 等。掌握React、Vue3 框架进行 web 端项目开发。",
     minzu: "汉族",
@@ -105,13 +103,15 @@ const Experience = () => {
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6 mb-6">
         {/* 左侧3D头像：缩小最大宽度，减少垂直高度占用 */}
       <div className="w-full max-w-[300px] mx-auto lg:mx-0 fade-in-element" style={{ "--enter-delay": "0.14s" }}>
-        <OptimizedImage
+        <img
           src={infoData.avatarImg}
           alt="avatar"
           loading="eager"
+          decoding="async"
           fetchPriority="high"
-          containerClassName="rounded-xl aspect-[4/5] shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
-          className="rounded-xl"
+          width="400"
+          height="500"
+          className="aspect-[4/5] w-full rounded-xl object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
         />
       </div>
 
