@@ -1,22 +1,26 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { compression } from 'vite-plugin-compression'
+import viteCompression from 'vite-plugin-compression'
 
 export default defineConfig({
   plugins: [
     react(),
-    compression({
+    viteCompression({
       algorithm: 'gzip',
-      ext: '.gz'
+      ext: '.gz',
+      threshold: 1024
     })
   ],
   build: {
-    sourcemap: false, // 关闭源码映射，减小体积
+    sourcemap: false,
     cssCodeSplit: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          reactVendor: ['react', 'react-dom', 'react-router-dom']
+        // Rolldown(Vite8) 必须使用函数形式
+        manualChunks(id) {
+          if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+            return 'reactVendor'
+          }
         }
       }
     }
