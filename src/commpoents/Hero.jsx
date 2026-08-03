@@ -4,16 +4,16 @@ import OptimizedImage from './OptimizedImage';
 
 const Hero = () => {
    const workList = [
-    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQAat.png", title: "" },
-    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQMrj.png", title: "" },
-    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQZPf.png", title: "" },
-    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQZPf.png", title: "" },
-    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQQqs.png", title: "" },
-    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQEIP.png", title: "" },
-    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQmRS.png", title: "" },
-    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQeG8.png", title: "" },
-    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQKMQ.png", title: "" },
-    { imgUrl: "https://s41.ax1x.com/2026/07/30/pmhQnxg.png", title: "" },
+    { imgUrl: "/work1.webp", title: "" },
+    { imgUrl: "/work2.webp", title: "" },
+    { imgUrl: "/work3.webp", title: "" },
+    { imgUrl: "/work4.webp", title: "" },
+    { imgUrl: "/work5.webp", title: "" },
+    { imgUrl: "/work6.webp", title: "" },
+    { imgUrl: "/work7.webp", title: "" },
+    { imgUrl: "/work8.webp", title: "" },
+    { imgUrl: "/work9.webp", title: "" },
+    { imgUrl: "/work10.webp", title: "" },
   ];
 
   // 弹窗状态管理

@@ -4,7 +4,7 @@ import OptimizedImage from './OptimizedImage';
 const Experience = () => {
   // 静态简历数据
   const infoData = {
-    avatarImg: "https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEYR9dqbMSF8E72DbSZ2ihknNHQ7HrUIQACDygAAhvBaVdVpPkYQq6Nxz0E.jpg", 
+    avatarImg: "/avatar-3d.webp", 
     name: "郭雨生",
     desc: "熟练使用Claude Code、Codex、OpenClaw,熟悉VibeCoding式开发提升工作效率。熟练部署本地 AI 人工智能体，配置各种模型 chatgtp、 llma、deepseek 等。掌握React、Vue3 框架进行 web 端项目开发。",
     minzu: "汉族",

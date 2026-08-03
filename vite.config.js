@@ -1,11 +1,24 @@
 import { defineConfig } from 'vite'
-import react, { reactCompilerPreset } from '@vitejs/plugin-react'
-import babel from '@rolldown/plugin-babel'
+import react from '@vitejs/plugin-react'
+import { compression } from 'vite-plugin-compression'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    babel({ presets: [reactCompilerPreset()] })
+    compression({
+      algorithm: 'gzip',
+      ext: '.gz'
+    })
   ],
+  build: {
+    sourcemap: false, // 关闭源码映射，减小体积
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          reactVendor: ['react', 'react-dom', 'react-router-dom']
+        }
+      }
+    }
+  }
 })
