@@ -1,3 +1,6 @@
+import TiltedCard from '../specialeffects/TiltedCard';
+import OptimizedImage from './OptimizedImage';
+
 const Experience = () => {
   // 静态简历数据
   const infoData = {
@@ -103,16 +106,16 @@ const Experience = () => {
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6 mb-6">
         {/* 左侧3D头像：缩小最大宽度，减少垂直高度占用 */}
       <div className="w-full max-w-[300px] mx-auto lg:mx-0 fade-in-element" style={{ "--enter-delay": "0.14s" }}>
-        <img
-          src={infoData.avatarImg}
-          alt="avatar"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-          width="400"
-          height="500"
-          className="aspect-[4/5] w-full rounded-xl object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
-        />
+        <TiltedCard tiltAmount={12} scaleOnHover={1.04}>
+          <OptimizedImage
+            src={infoData.avatarImg}
+            alt="avatar"
+            loading="eager"
+            fetchPriority="high"
+            containerClassName="rounded-xl aspect-[4/5]"
+            className="rounded-xl"
+          />
+        </TiltedCard>
       </div>
 
         {/* 右侧个人信息面板 */}
